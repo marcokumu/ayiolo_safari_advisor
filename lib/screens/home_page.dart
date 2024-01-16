@@ -16,13 +16,16 @@ class HomePageState extends State<HomePage> {
         Center(
           child: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Container(
-              height: 200,
-              width: 200,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/ayiolo_image.png'),
-                  fit: BoxFit.cover,
+            child: Hero(
+              tag: 'see_more',
+              child: Container(
+                height: 200,
+                width: 200,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/ayiolo_image.png'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -43,15 +46,18 @@ class HomePageState extends State<HomePage> {
             onTap: () {
               Navigator.pushNamed(context, '/ayiolo');
             },
-            child: Container(
-              height: 70,
-              width: 300,
-              decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 212, 208, 208),
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              child: Center(
-                child: Text('AYIOLO',
-                    style: Theme.of(context).textTheme.labelLarge),
+            child: Hero(
+              tag: 'ayiolo',
+              child: Container(
+                height: 70,
+                width: 300,
+                decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 212, 208, 208),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                child: Center(
+                  child: Text('AYIOLO',
+                      style: Theme.of(context).textTheme.labelLarge),
+                ),
               ),
             ),
           ),
@@ -66,15 +72,18 @@ class HomePageState extends State<HomePage> {
             onTap: () {
               Navigator.pushNamed(context, '/safari_advisor');
             },
-            child: Container(
-              height: 70,
-              width: 300,
-              decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 212, 208, 208),
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              child: Center(
-                child: Text('SAFARI ADVISOR',
-                    style: Theme.of(context).textTheme.labelLarge),
+            child: Hero(
+              tag: 'safari_advisor',
+              child: Container(
+                height: 70,
+                width: 300,
+                decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 212, 208, 208),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                child: Center(
+                  child: Text('SAFARI ADVISOR',
+                      style: Theme.of(context).textTheme.labelLarge),
+                ),
               ),
             ),
           ),

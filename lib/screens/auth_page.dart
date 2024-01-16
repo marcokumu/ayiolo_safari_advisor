@@ -45,7 +45,7 @@ class _AuthPageState extends State<AuthPage> {
                   if (value!.isEmpty) {
                     return 'Enter an email';
                   }
-                  
+
                   final emailRegex =
                       RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$');
                   if (!emailRegex.hasMatch(value)) {
@@ -99,7 +99,8 @@ class _AuthPageState extends State<AuthPage> {
                     }
                   }
                 },
-                child: Text(isNewUser ? 'Signup' : 'Login'),
+                child: Hero(
+                    tag: 'login', child: Text(isNewUser ? 'Signup' : 'Login')),
               ),
               TextButton(
                 onPressed: () {

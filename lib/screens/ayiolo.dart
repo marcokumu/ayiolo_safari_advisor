@@ -14,13 +14,16 @@ class Ayiolo extends StatelessWidget {
           Center(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
-              child: Container(
-                height: 200,
-                width: 200,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/ayiolo_image.png'),
-                    fit: BoxFit.cover,
+              child: Hero(
+                tag: 'ayiolo',
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/ayiolo_image.png'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -58,15 +61,18 @@ class Ayiolo extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, '/save_my_spot');
               },
-              child: Container(
-                height: 70,
-                width: 300,
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 212, 208, 208),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                child: Center(
-                  child: Text('SAVE MY SPOTS',
-                      style: Theme.of(context).textTheme.labelLarge),
+              child: Hero(
+                tag: 'save_my_spot',
+                child: Container(
+                  height: 70,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 212, 208, 208),
+                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                  child: Center(
+                    child: Text('SAVE MY SPOTS',
+                        style: Theme.of(context).textTheme.labelLarge),
+                  ),
                 ),
               ),
             ),

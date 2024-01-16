@@ -32,22 +32,25 @@ class _SaveMySpotState extends State<SaveMySpot> {
           const Text('Share what you saw to help Save animals!'),
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Container(
-              height: 400,
-              width: 400,
-              decoration: _imageFile != null
-                  ? BoxDecoration(
-                      image: DecorationImage(
-                        image: FileImage(File(_imageFile!.path)),
-                        fit: BoxFit.cover,
+            child: Hero(
+              tag: 'save_my_spot',
+              child: Container(
+                height: 400,
+                width: 400,
+                decoration: _imageFile != null
+                    ? BoxDecoration(
+                        image: DecorationImage(
+                          image: FileImage(File(_imageFile!.path)),
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    : const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/ayiolo_image.png'),
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    )
-                  : const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/ayiolo_image.png'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+              ),
             ),
           ),
           const SizedBox(height: 60.0),

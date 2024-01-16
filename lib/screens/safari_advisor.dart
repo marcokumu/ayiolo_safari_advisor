@@ -54,16 +54,20 @@ class _SafariAdvisorState extends State<SafariAdvisor> {
               child: SizedBox(
                 height: 100,
                 width: 400,
-                child: Container(
-                    // color: Colors.black,
-                    decoration: const BoxDecoration(
-                        color: Color.fromARGB(255, 235, 234, 234),
-                        borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                    child: Text(selectedAnimals.join(", "),
-                        style: const TextStyle(
-                          fontSize: 17.0,
-                          fontWeight: FontWeight.bold,
-                        ))),
+                child: Hero(
+                  tag: 'safari_advisor',
+                  child: Container(
+                      // color: Colors.black,
+                      decoration: const BoxDecoration(
+                          color: Color.fromARGB(255, 235, 234, 234),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(10.0))),
+                      child: Text(selectedAnimals.join(", "),
+                          style: const TextStyle(
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.bold,
+                          ))),
+                ),
               ),
             ),
             const SizedBox(height: 40.0),

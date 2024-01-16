@@ -18,13 +18,16 @@ class WelcomePageState extends State<WelcomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  height: 400,
-                  width: 400,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/ayiolo_image.png'),
-                      fit: BoxFit.cover,
+                Hero(
+                  tag: 'login',
+                  child: Container(
+                    height: 400,
+                    width: 400,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/ayiolo_image.png'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
@@ -47,16 +50,19 @@ class WelcomePageState extends State<WelcomePage> {
                     onTap: () {
                       Navigator.pushNamed(context, '/bottom_navigation');
                     },
-                    child: Container(
-                      height: 70,
-                      width: 300,
-                      decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 230, 227, 227),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.0))),
-                      child: Center(
-                        child: Text('See More! Save More!',
-                            style: Theme.of(context).textTheme.labelLarge),
+                    child: Hero(
+                      tag: 'see_more',
+                      child: Container(
+                        height: 70,
+                        width: 300,
+                        decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 230, 227, 227),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.0))),
+                        child: Center(
+                          child: Text('See More! Save More!',
+                              style: Theme.of(context).textTheme.labelLarge),
+                        ),
                       ),
                     ),
                   ),
