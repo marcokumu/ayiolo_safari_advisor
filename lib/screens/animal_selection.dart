@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:ayiolo_safari_advisor/widgets/animal_list.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +12,22 @@ class AnimalSelection extends StatefulWidget {
 
 List<String> selectedAnimals = [];
 
+String getSelectedContentMessage() {
+  int numberOfSelectedAnimals = selectedAnimals.length;
+
+  if (numberOfSelectedAnimals == 0) {
+    return 'No animals selected';
+  } else if (numberOfSelectedAnimals == 1) {
+    return '1 animal selected';
+  } else if (numberOfSelectedAnimals <= 5) {
+    return '$numberOfSelectedAnimals animals selected';
+  } else {
+    return 'You can only select 5 animals';
+  }
+}
+
+String animalLimitMessage = '';
+
 class _AnimalSelectionState extends State<AnimalSelection> {
   @override
   Widget build(BuildContext context) {
@@ -21,6 +39,7 @@ class _AnimalSelectionState extends State<AnimalSelection> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Animal Selection'),
+          centerTitle: true,
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -41,6 +60,9 @@ class _AnimalSelectionState extends State<AnimalSelection> {
                       selectedAnimals.remove(animal);
                     } else if (selectedAnimals.length < 5) {
                       selectedAnimals.add(animal);
+                      animalLimitMessage = '';
+                    } else {
+                      animalLimitMessage = 'You can only select 5 animals';
                     }
                   });
                 }),
@@ -48,7 +70,9 @@ class _AnimalSelectionState extends State<AnimalSelection> {
               const SizedBox(
                 height: 20.0,
               ),
-              Text('Selected Animals: ${selectedAnimals.length}'),
+              Text(getSelectedContentMessage()),
+              Text(animalLimitMessage,
+                  style: const TextStyle(color: Colors.red)),
               SizedBox(
                 height: 200,
                 width: 400,

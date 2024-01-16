@@ -1,5 +1,6 @@
 import 'package:ayiolo_safari_advisor/widgets/countries_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class CountriesSelection extends StatefulWidget {
   const CountriesSelection({super.key});
@@ -9,6 +10,22 @@ class CountriesSelection extends StatefulWidget {
 }
 
 List<String> selectedCountries = [];
+
+String getSelectedContentMessage() {
+  int numberOfSelectedCountries = selectedCountries.length;
+
+  if (numberOfSelectedCountries == 0) {
+    return 'No countries selected';
+  } else if (numberOfSelectedCountries == 1) {
+    return '1 country selected';
+  } else if (numberOfSelectedCountries <= 4) {
+    return '$numberOfSelectedCountries countries selected';
+  } else {
+    return 'You can only select 4 countries';
+  }
+}
+
+String countryLimitMessage = '';
 
 class _CountriesSelectionState extends State<CountriesSelection> {
   @override
@@ -21,6 +38,7 @@ class _CountriesSelectionState extends State<CountriesSelection> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Countries Selection'),
+          centerTitle: true,
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -37,6 +55,10 @@ class _CountriesSelectionState extends State<CountriesSelection> {
                         selectedCountries.remove(country);
                       } else if (selectedCountries.length < 4) {
                         selectedCountries.add(country);
+                        countryLimitMessage =
+                            ''; 
+                      } else {
+                        countryLimitMessage = 'You can only select 4 countries';
                       }
                     });
                   },
@@ -45,7 +67,11 @@ class _CountriesSelectionState extends State<CountriesSelection> {
               const SizedBox(
                 height: 20.0,
               ),
-              Text('Selected Countries: ${selectedCountries.length}'),
+              Text(getSelectedContentMessage()),
+              Text(
+                countryLimitMessage,
+                style: const TextStyle(color: Colors.red),
+              ),
               SizedBox(
                 height: 200,
                 width: 400,

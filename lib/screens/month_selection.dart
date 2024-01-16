@@ -9,6 +9,22 @@ class MonthSelection extends StatefulWidget {
   State<MonthSelection> createState() => _MonthSelectionState();
 }
 
+String getSelectedContentMessage() {
+  int numberOfSelectedMonths = selectedMonths.length;
+
+  if (numberOfSelectedMonths == 0) {
+    return 'No months selected';
+  } else if (numberOfSelectedMonths == 1) {
+    return '1 month selected';
+  } else if (numberOfSelectedMonths <= 3) {
+    return '$numberOfSelectedMonths months selected';
+  } else {
+    return 'You can only select 3 months';
+  }
+}
+
+String monthLimitMessage = '';
+
 List<String> selectedMonths = [];
 
 class _MonthSelectionState extends State<MonthSelection> {
@@ -22,6 +38,7 @@ class _MonthSelectionState extends State<MonthSelection> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Month Selection'),
+          centerTitle: true,
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -42,6 +59,9 @@ class _MonthSelectionState extends State<MonthSelection> {
                         setState(() {
                           if (selectedMonths.length < 3) {
                             selectedMonths.add(selectedMonth);
+                            monthLimitMessage = '';
+                          } else {
+                            monthLimitMessage = 'You can only select 3 months';
                           }
                         });
                       },
@@ -49,7 +69,11 @@ class _MonthSelectionState extends State<MonthSelection> {
                   ),
                 ),
               const SizedBox(height: 10.0),
-              Text('Selected Months: ${selectedMonths.length}'),
+              Text(getSelectedContentMessage()),
+              Text(
+                monthLimitMessage,
+                style: const TextStyle(color: Colors.red),
+              ),
               SizedBox(
                 height: 200,
                 width: 400,
