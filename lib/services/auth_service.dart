@@ -23,4 +23,22 @@ class AuthService {
     throw Exception('Sign up failed');
   }
 
+  // Sign in with email and password
+  Future<UserCredential> signInWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      return userCredential;
+    } on FirebaseAuthException catch (e) {
+      _handleAuthException(e);
+    } catch (e) {
+      _handleUnexpectedError(e);
+    }
+    throw Exception('Sign in failed');
+  }
+
 }
