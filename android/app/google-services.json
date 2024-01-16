@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "703908194362",
+    "project_id": "ayiolo-safari",
+    "storage_bucket": "ayiolo-safari.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703908194362:android:2920540895a3847490ed03",
+        "android_client_info": {
+          "package_name": "com.example.ayiolo_safari_advisor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDmECIIQDXeInCNf_Lf3X3FiI8wklvQsI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBT9hqR2JDEq20FvA3_2bNPzGGzoJeyPf8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>703908194362</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.ayioloSafariAdvisor</string>
+	<key>PROJECT_ID</key>
+	<string>ayiolo-safari</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ayiolo-safari.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:703908194362:ios:5f1d0426d9edae7290ed03</string>
+</dict>
+</plist>
