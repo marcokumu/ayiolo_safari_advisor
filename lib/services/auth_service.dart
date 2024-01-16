@@ -41,4 +41,22 @@ class AuthService {
     throw Exception('Sign in failed');
   }
 
+  // Helper function to handle FirebaseAuthException
+  void _handleAuthException(FirebaseAuthException e) {
+    // Specific error handling based on Firebase Authentication exceptions
+    if (e.code == 'weak-password') {
+      error = 'The password provided is too weak.';
+    } else if (e.code == 'email-already-in-use') {
+      error = 'The account already exists for that email.';
+    } else if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+      error = 'Invalid email or password.';
+    } else {
+      error = 'An unknown error occurred.';
+    }
+  }
+
+  // Helper function to handle unexpected errors
+  void _handleUnexpectedError(dynamic e) {
+    error = 'An unexpected error occurred during authentication.';
+  }
 }
