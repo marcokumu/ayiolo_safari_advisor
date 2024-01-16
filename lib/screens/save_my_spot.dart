@@ -26,11 +26,10 @@ class _SaveMySpotState extends State<SaveMySpot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Share what you saw to help Save animals!'),
-      ),
+      appBar: AppBar(),
       body: Column(
         children: [
+          const Text('Share what you saw to help Save animals!'),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Container(
