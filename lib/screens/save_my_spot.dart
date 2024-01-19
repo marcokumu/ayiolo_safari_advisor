@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+
 
 class SaveMySpot extends StatefulWidget {
-  const SaveMySpot({super.key});
+  const SaveMySpot({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<SaveMySpot> createState() => _SaveMySpotState();
+  _SaveMySpotState createState() => _SaveMySpotState();
 }
 
 class _SaveMySpotState extends State<SaveMySpot> {
-  XFile? _imageFile;
+  String? _imagePath;
 
-  // Function to pick an image from the gallery or camera
-  Future<void> _pickImage(ImageSource source) async {
-    final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(source: source);
-    if (image != null) {
+  Future<void> _takePhoto() async {
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.camera);
+
+    if (pickedFile != null) {
       setState(() {
-        _imageFile = image;
+        _imagePath = pickedFile.path;
       });
     }
   }
@@ -26,72 +28,20 @@ class _SaveMySpotState extends State<SaveMySpot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text('Save My Spot')),
       body: Column(
         children: [
-          const Text('Share what you saw to help Save animals!'),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Hero(
-              tag: 'save_my_spot',
-              child: Container(
-                height: 400,
-                width: 400,
-                decoration: _imageFile != null
-                    ? BoxDecoration(
-                        image: DecorationImage(
-                          image: FileImage(File(_imageFile!.path)),
-                          fit: BoxFit.cover,
-                        ),
-                      )
-                    : const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/ayiolo_image.png'),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-              ),
-            ),
+          Container(
+            height: 300,
+            width: double.infinity,
+            child: _imagePath == null
+                ? Center(child: Text('No image selected'))
+                : Image.file(File(_imagePath!)),
           ),
-          const SizedBox(height: 60.0),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () {
-                _pickImage(ImageSource.camera);
-              },
-              child: Container(
-                height: 70,
-                width: 300,
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 212, 208, 208),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                child: Center(
-                  child: Text('Take Photo',
-                      style: Theme.of(context).textTheme.labelLarge),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 60.0),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () {
-                _pickImage(ImageSource.gallery);
-              },
-              child: Container(
-                height: 70,
-                width: 300,
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 212, 208, 208),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                child: Center(
-                  child: Text('Get from Gallery',
-                      style: Theme.of(context).textTheme.labelLarge),
-                ),
-              ),
-            ),
+          ElevatedButton.icon(
+            onPressed: _takePhoto,
+            icon: Icon(Icons.camera),
+            label: Text('Take Photo'),
           ),
         ],
       ),

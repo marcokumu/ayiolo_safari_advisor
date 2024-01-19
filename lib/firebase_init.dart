@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 Future<void> initializeFirebase() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Future.wait([
-    // Initialize Firebase
-    Firebase.initializeApp(
+  try {
+    await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
-    ),
-  ]);
+    );
+  } catch (e) {
+    print('Error initializing Firebase: $e');
+  }
 }

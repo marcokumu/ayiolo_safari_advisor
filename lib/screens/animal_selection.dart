@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:ayiolo_safari_advisor/widgets/animal_list.dart';
 import 'package:flutter/material.dart';
 

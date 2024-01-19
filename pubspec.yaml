@@ -34,6 +34,13 @@ dependencies:
   firebase_auth:
   image_picker: ^1.0.7
   permission_handler:
+  google_maps_flutter: ^2.5.3
+  location: ^5.0.3
+  intl:
+  path:
+  path_provider:
+  camera:
+  cloud_firestore:
   
 
 
