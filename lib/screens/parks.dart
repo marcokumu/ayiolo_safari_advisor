@@ -21,7 +21,7 @@ class Parks extends StatelessWidget {
           return GestureDetector(
             onTap: () {
               if (index == 0) {
-                Navigator.pushNamed(context, '');
+                Navigator.pushNamed(context, '/park_interests');
               }
             },
             child: Container(

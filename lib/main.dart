@@ -2,6 +2,7 @@ import 'package:ayiolo_safari_advisor/navigation/bottom_navigation.dart';
 import 'package:ayiolo_safari_advisor/routes.dart';
 import 'package:ayiolo_safari_advisor/firebase_init.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   await initializeFirebase();
@@ -20,9 +21,18 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: '/spotted_animal',
+      initialRoute: determineInitialRoute(),
       home: const BottomNavigation(),
       routes: AppRoutes.routes,
     );
+  }
+
+  String determineInitialRoute() {
+    // Check if the user is already signed in
+    if (FirebaseAuth.instance.currentUser != null) {
+      return '/welcome';
+    } else {
+      return '/onboarding';
+    }
   }
 }

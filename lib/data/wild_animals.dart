@@ -1,4 +1,6 @@
 final List<String> wildAnimals = [
+  'Lion',
+  'Cheetah',
   'Aardvark',
   'African Civet',
   'African Elephant',
@@ -20,7 +22,6 @@ final List<String> wildAnimals = [
   'Black Mamba',
   'Buffalo',
   'Cape Buffalo',
-  'Cheetah',
   'Crocodile',
   'Elephant',
   'Gazelle',
@@ -31,7 +32,6 @@ final List<String> wildAnimals = [
   'Hyena',
   'Impala',
   'Leopard',
-  'Lion',
   'Meerkat',
   'Ostrich',
   'Rhino',

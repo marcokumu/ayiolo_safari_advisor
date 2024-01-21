@@ -52,18 +52,21 @@ class _AnimalSelectionState extends State<AnimalSelection> {
               SizedBox(
                 height: 500,
                 width: 300,
-                child: AnimalList(onAnimalSelected: (String animal) {
-                  setState(() {
-                    if (selectedAnimals.contains(animal)) {
-                      selectedAnimals.remove(animal);
-                    } else if (selectedAnimals.length < 5) {
-                      selectedAnimals.add(animal);
-                      animalLimitMessage = '';
-                    } else {
-                      animalLimitMessage = 'You can only select 5 animals';
-                    }
-                  });
-                }),
+                child: AnimalList(
+                  onAnimalSelected: (String animal) {
+                    setState(() {
+                      if (selectedAnimals.contains(animal)) {
+                        selectedAnimals.remove(animal);
+                      } else if (selectedAnimals.length < 5) {
+                        selectedAnimals.add(animal);
+                        animalLimitMessage = '';
+                      } else {
+                        animalLimitMessage = 'You can only select 5 animals';
+                      }
+                    });
+                  },
+                  isEnabled: true,
+                ),
               ),
               const SizedBox(
                 height: 20.0,

@@ -15,6 +15,15 @@ class LocationService {
     });
   }
 
+   Future<LocationData> getCurrentLocation() async {
+    try {
+      return await _locationController.getLocation();
+    } catch (e) {
+      print('Error getting current location: $e');
+      return LocationData.fromMap({'latitude': 0.0, 'longitude': 0.0});
+    }
+  }
+
   Future<void> initializeLocationService() async {
     bool serviceEnabled;
     PermissionStatus permissionGranted;

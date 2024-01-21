@@ -39,7 +39,7 @@ class Ayiolo extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '');
+                Navigator.pushNamed(context, '/find_animals');
               },
               child: Container(
                 height: 70,
@@ -59,7 +59,7 @@ class Ayiolo extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/save_my_spot');
+                Navigator.pushReplacementNamed(context, '/save_my_spot');
               },
               child: Hero(
                 tag: 'save_my_spot',

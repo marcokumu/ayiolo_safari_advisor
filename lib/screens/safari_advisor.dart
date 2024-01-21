@@ -57,7 +57,7 @@ class _SafariAdvisorState extends State<SafariAdvisor> {
                 child: Hero(
                   tag: 'safari_advisor',
                   child: Container(
-                      // color: Colors.black,
+                    
                       decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 235, 234, 234),
                           borderRadius:
@@ -99,7 +99,7 @@ class _SafariAdvisorState extends State<SafariAdvisor> {
                 height: 100,
                 width: 400,
                 child: Container(
-                    // color: Colors.black,
+                    
                     decoration: const BoxDecoration(
                         color: Color.fromARGB(255, 228, 225, 225),
                         borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -139,7 +139,7 @@ class _SafariAdvisorState extends State<SafariAdvisor> {
                   height: 100,
                   width: 400,
                   child: Container(
-                    // color: Colors.black,
+                    
                     decoration: const BoxDecoration(
                         color: Color.fromARGB(255, 240, 238, 238),
                         borderRadius: BorderRadius.all(Radius.circular(10.0))),

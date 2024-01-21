@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class AnimalList extends StatefulWidget {
   final Function(String) onAnimalSelected;
+  final bool isEnabled;
 
-  const AnimalList({super.key, required this.onAnimalSelected});
+  const AnimalList({super.key, required this.isEnabled, required this.onAnimalSelected});
 
   @override
   AnimalListState createState() => AnimalListState();
@@ -23,10 +24,17 @@ class AnimalListState extends State<AnimalList> {
           children: [
             Center(
               child: ListTile(
-                title: Text(animal),
-                onTap: () {
-                  widget.onAnimalSelected(animal);
-                },
+                title: Text(
+                  animal,
+                  style: TextStyle(
+                    color: widget.isEnabled! ? Colors.black : Colors.grey,
+                  ),
+                ),
+                onTap: widget.isEnabled!
+                    ? () {
+                        widget.onAnimalSelected(animal);
+                      }
+                    : null,
               ),
             ),
             const Divider(

@@ -1,19 +1,20 @@
+import 'package:flutter/material.dart';
 import 'package:ayiolo_safari_advisor/navigation/bottom_navigation.dart';
 import 'package:ayiolo_safari_advisor/screens/animal_selection.dart';
 import 'package:ayiolo_safari_advisor/screens/auth_page.dart';
 import 'package:ayiolo_safari_advisor/screens/ayiolo.dart';
 import 'package:ayiolo_safari_advisor/screens/countries_selection.dart';
+import 'package:ayiolo_safari_advisor/screens/find_animals.dart';
 import 'package:ayiolo_safari_advisor/screens/home_page.dart';
-import 'package:ayiolo_safari_advisor/screens/maps.dart';
+import 'package:ayiolo_safari_advisor/screens/spot_names.dart';
 import 'package:ayiolo_safari_advisor/screens/month_selection.dart';
 import 'package:ayiolo_safari_advisor/screens/onboarding.dart';
+import 'package:ayiolo_safari_advisor/screens/park_interests.dart';
 import 'package:ayiolo_safari_advisor/screens/parks.dart';
 import 'package:ayiolo_safari_advisor/screens/safari_advisor.dart';
 import 'package:ayiolo_safari_advisor/screens/save_my_spot.dart';
 import 'package:ayiolo_safari_advisor/screens/save_spotted_animal.dart';
 import 'package:ayiolo_safari_advisor/screens/welcome_page.dart';
-import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
 
 class AppRoutes {
   static final Map<String, WidgetBuilder> routes = {
@@ -29,7 +30,9 @@ class AppRoutes {
     '/parks': (context) => const Parks(),
     '/bottom_navigation': (context) => const BottomNavigation(),
     '/ayiolo': (context) => const Ayiolo(),
-    '/maps': (context) => const MapsWidget(),
-    '/spotted_animal': (context) => const SaveSpottedAnimal(),
+    '/spot_names': (context) => const MapsWidget(),
+    '/spotted_animal': (context) => const SaveSpottedAnimal(locationData: null),
+    '/park_interests': (context) => const ParkInterests(),
+    '/find_animals': (context) => const FindAnimals(),
   };
 }

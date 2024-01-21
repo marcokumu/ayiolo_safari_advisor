@@ -1,4 +1,4 @@
-import 'package:ayiolo_safari_advisor/data/flag_urls.dart'; // Assuming flagURLS and countryNames are defined here
+import 'package:ayiolo_safari_advisor/data/flag_urls.dart'; 
 import 'package:flutter/material.dart';
 
 class LocationNavItem extends StatelessWidget {
