@@ -68,7 +68,7 @@ class _SaveSpottedAnimalState extends State<SaveSpottedAnimal> {
       DocumentReference documentReference =
           await saveSpotCollection.add(dataToSave);
 
-      // Optionally, you can print the document ID or a success message
+      
       print('Data saved to Firestore! Document ID: ${documentReference.id}');
 
       return documentReference;
@@ -76,7 +76,7 @@ class _SaveSpottedAnimalState extends State<SaveSpottedAnimal> {
       // Print a message if data is null
       print('Data is null or incomplete. Not saving to Firestore.');
       return FirebaseFirestore.instance
-          .doc('dummy'); // Return a placeholder reference
+          .doc('dummy');
     }
   }
 

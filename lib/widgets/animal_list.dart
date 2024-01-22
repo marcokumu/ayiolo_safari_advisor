@@ -27,10 +27,10 @@ class AnimalListState extends State<AnimalList> {
                 title: Text(
                   animal,
                   style: TextStyle(
-                    color: widget.isEnabled! ? Colors.black : Colors.grey,
+                    color: widget.isEnabled ? Colors.black : Colors.grey,
                   ),
                 ),
-                onTap: widget.isEnabled!
+                onTap: widget.isEnabled
                     ? () {
                         widget.onAnimalSelected(animal);
                       }

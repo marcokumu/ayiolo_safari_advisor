@@ -48,7 +48,8 @@ class WelcomePageState extends State<WelcomePage> {
                   padding: const EdgeInsets.all(8.0),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/bottom_navigation');
+                      Navigator.pushReplacementNamed(
+                          context, '/bottom_navigation');
                     },
                     child: Hero(
                       tag: 'see_more',

@@ -58,9 +58,9 @@ class MapsWidgetState extends State<MapsWidget> {
     
     Future.delayed(const Duration(seconds: 1), () {
       _mapController.animateCamera(CameraUpdate.newLatLngZoom(
-        _currentLocation ?? _nairobiNationalPark,
-
+        _currentLocation ?? _nairobiNationalPark, 
         13, 
+
       ));
     });
   }
@@ -168,7 +168,7 @@ class MapsWidgetState extends State<MapsWidget> {
             SizedBox(
               height: 600,
               child: _currentLocation == null
-                  ? const Text('Loading...')
+                  ? const CircularProgressIndicator()
                   : GoogleMap(
                       onMapCreated: _onMapCreated, 
                       initialCameraPosition: const CameraPosition(
